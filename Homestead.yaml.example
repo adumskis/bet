@@ -1,0 +1,22 @@
+ip: 192.168.90.10
+memory: 2048
+cpus: 2
+provider: virtualbox
+authorize: ~/.ssh/id_rsa.pub
+keys:
+    - ~/.ssh/id_rsa
+folders:
+    -
+        map: /var/www/bet
+        to: /home/vagrant/code
+sites:
+    -
+        map: bet.test
+        to: /home/vagrant/code/public
+databases:
+    - bet
+features:
+    -
+        mariadb: true
+name: bet
+hostname: bet
