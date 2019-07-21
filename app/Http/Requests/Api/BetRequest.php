@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Api;
 
 use App\Http\Requests\Request;
+use App\Services\Validation\Validators\BalanceValidator;
 use App\Services\Validation\Validators\MaximumWinValidator;
 use App\Services\Validation\Validators\SelectionsValidator;
 use App\Services\Validation\Validators\StakeAmountValidator;
@@ -24,6 +25,7 @@ class BetRequest extends Request
             StakeAmountValidator::class,
             SelectionsValidator::class,
             MaximumWinValidator::class,
+            BalanceValidator::class,
         ];
     }
 }

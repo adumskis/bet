@@ -14,11 +14,20 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class Player extends Model
 {
+    const DEFAULT_BALANCE = 1000;
+
     /**
      * @var array
      */
     protected $fillable = [
         'balance',
+    ];
+
+    /**
+     * @var array
+     */
+    protected $attributes = [
+        'balance' => self::DEFAULT_BALANCE
     ];
 
     /**

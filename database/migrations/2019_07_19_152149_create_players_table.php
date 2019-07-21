@@ -18,7 +18,7 @@ class CreatePlayersTable extends Migration
     {
         Schema::create('players', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->float('balance')->default(1000);
+            $table->float('balance');
 
             $table->timestamps();
         });
