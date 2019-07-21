@@ -46,6 +46,14 @@ $app->singleton(
     App\Console\Kernel::class
 );
 
+$app->afterResolving(\Illuminate\Contracts\Validation\ValidatesWhenResolved::class, function ($resolved) {
+    $resolved->validateResolved();
+});
+
+$app->bind(\Illuminate\Config\Repository::class, function ($app) {
+    return $app->make('config');
+});
+
 /*
 |--------------------------------------------------------------------------
 | Register Middleware
@@ -90,6 +98,8 @@ $app->singleton(
 | can respond to, as well as the controllers that may handle them.
 |
 */
+
+$app->configure('app');
 
 $app->router->group([
     'namespace' => 'App\Http\Controllers',
