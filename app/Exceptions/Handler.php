@@ -70,7 +70,6 @@ class Handler extends ExceptionHandler
             $errors = $exception->getValidationErrors();
             $status = 400;
         } else {
-            dd($exception);
             $errors = [new UnknownError()];
             $status = 500;
             $this->logger->error($exception->getMessage(), ['exception' => $exception]);

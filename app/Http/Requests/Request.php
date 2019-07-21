@@ -36,6 +36,14 @@ class Request implements ValidatesWhenResolved
     }
 
     /**
+     * @return BaseRequest
+     */
+    public function getRequest(): BaseRequest
+    {
+        return $this->request;
+    }
+
+    /**
      * @throws ValidationException
      */
     public function validateResolved(): void
