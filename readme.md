@@ -10,11 +10,11 @@
 ## How to run locally
 * Clone repository;
 * Copy `.env.example` to `.env`;
-* Copy `Homestead.yaml.example` to `Homestead.yaml`;
+* Copy `Homestead.yaml.example` to `Homestead.yaml` and update path;
+* Install composer dependencies: `composer install --ignore-platform-reqs`;
 * Build vagrant VM: `vagrant up`;
 * Connect to VM: `vagrant ssh`;
 * Go to project directory: `cd code`;
-* Install composer dependencies: `composer install`;
 * Run migrations: `php artisan migrate`;
 * Run example request using Postman (or other) client.
 
