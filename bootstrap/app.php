@@ -54,6 +54,10 @@ $app->bind(\Illuminate\Config\Repository::class, function ($app) {
     return $app->make('config');
 });
 
+$app->bind(\Illuminate\Cache\CacheManager::class, function ($app) {
+    return $app->make('cache');
+});
+
 /*
 |--------------------------------------------------------------------------
 | Register Middleware
@@ -69,9 +73,9 @@ $app->bind(\Illuminate\Config\Repository::class, function ($app) {
 //     App\Http\Middleware\ExampleMiddleware::class
 // ]);
 
-// $app->routeMiddleware([
-//     'auth' => App\Http\Middleware\Authenticate::class,
-// ]);
+ $app->routeMiddleware([
+     'once_per_player' => \App\Http\Middleware\OncePerPlayerMiddleware::class,
+ ]);
 
 /*
 |--------------------------------------------------------------------------
@@ -84,6 +88,7 @@ $app->bind(\Illuminate\Config\Repository::class, function ($app) {
 |
 */
 
+$app->register(Illuminate\Redis\RedisServiceProvider::class);
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);

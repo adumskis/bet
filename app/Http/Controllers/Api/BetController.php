@@ -30,9 +30,11 @@ class BetController extends Controller
     /**
      * @param BetRequest $request
      * @return JsonResponse
+     * @throws \Throwable
      */
     public function __invoke(BetRequest $request): JsonResponse
     {
+        sleep(rand(1, 30));
         $this->betManager->create($request->getRequest()->all());
 
         return new JsonResponse([], 201);

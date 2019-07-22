@@ -8,6 +8,6 @@ $router->get('/', function () use ($router) {
 
 $router->group(['namespace' => 'Api', 'prefix' => 'api'], function () use ($router) {
     $router->group(['prefix' => 'bet'], function () use ($router) {
-        $router->post('/', ['uses' => 'BetController']);
+        $router->post('/', ['uses' => 'BetController', 'middleware' => 'once_per_player', 'as' => 'api.bet.store']);
     });
 });
